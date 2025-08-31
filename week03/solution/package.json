@@ -1,0 +1,29 @@
+{
+  "name": "solution",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "jasmine": "jasmine",
+    "start": "nodemon src/index.ts",
+    "build": "tsc",
+    "test": "npm run build && npm run jasmine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "^5.1.9",
+    "@types/node": "^24.3.0",
+    "@types/supertest": "^6.0.3",
+    "@types/typescript": "^2.0.0",
+    "gitignore": "^0.7.0",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  },
+  "dependencies": {
+    "jasmine": "^5.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "supertest": "^7.1.4"
+  }
+}
