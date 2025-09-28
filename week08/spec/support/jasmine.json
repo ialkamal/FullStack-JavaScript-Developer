@@ -1,0 +1,35 @@
+{
+  "spec_dir": "spec",
+  "spec_files": ["**/*[sS]pec.ts"],
+  "helpers": ["helpers/**/*.ts"],
+  "env": {
+    "NODE_ENV": "test",
+    "TS_NODE_PROJECT": "tsconfig.test.json"
+  },
+  "stopSpecOnExpectationFailure": false,
+  "random": false,
+  "reporters": [
+    {
+      "name": "jasmine-spec-reporter",
+      "options": {
+        "displayFailuresSummary": true,
+        "displayFailedSpec": true,
+        "displaySuiteNumber": true,
+        "displaySpecDuration": true,
+        "displayPendingSpec": true,
+        "displaySuccessfulSpec": true,
+        "colors": {
+          "success": "green",
+          "failure": "red",
+          "pending": "yellow"
+        },
+        "prefixes": {
+          "success": "✓ ",
+          "failure": "✗ ",
+          "pending": "* "
+        },
+        "customProcessors": []
+      }
+    }
+  ]
+}

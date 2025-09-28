@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2020",
+    "types": ["node", "jasmine"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "strict": false,
+    "isolatedModules": false
+  },
+  "include": ["src/**/*", "spec/**/*"],
+  "exclude": ["node_modules", "dist"]
+}

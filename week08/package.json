@@ -1,0 +1,45 @@
+{
+  "name": "week08",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/index.ts",
+    "test": "jasmine --config=spec/support/jasmine.json --require=ts-node/register",
+    "test:crud": "jasmine --config=spec/support/jasmine.json --require=ts-node/register spec/crudSpec.ts",
+    "test:demo": "jasmine --config=spec/support/jasmine.json --require=ts-node/register spec/demoSpec.ts",
+    "test:watch": "nodemon --watch src --watch spec --ext ts --exec \"npm test\"",
+    "demo": "ts-node ./src/demo.ts",
+    "migrate:dev": "db-migrate --env dev up",
+    "migrate:test": "db-migrate --env test up",
+    "migrate:dev:down": "db-migrate --env dev down",
+    "migrate:test:down": "db-migrate --env test down",
+    "migrate:reset:dev": "db-migrate --env dev reset && db-migrate --env dev up",
+    "migrate:reset:test": "db-migrate --env test reset && db-migrate --env test up",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart",
+    "setup": "docker-compose up -d && npm run migrate:dev && npm run migrate:test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "jasmine": "^5.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "pg": "^8.16.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^5.1.9",
+    "@types/nodemon": "^3.1.1",
+    "@types/pg": "^8.15.5",
+    "@types/typescript": "^2.0.0",
+    "cross-env": "^10.0.0",
+    "db-migrate": "^0.11.14",
+    "nodemon": "^3.1.10"
+  }
+}
