@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "db-migrate-pg": "^1.5.2"
+  }
+}

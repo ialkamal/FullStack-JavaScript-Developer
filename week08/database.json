@@ -2,17 +2,8 @@
   "dev": {
     "driver": "pg",
     "host": "localhost",
-    "port": 5433,
     "database": "books_dev",
-    "user": "books_user",
-    "password": "booksbooks"
-  },
-  "test": {
-    "driver": "pg",
-    "host": "localhost",
-    "port": 5434,
-    "database": "books_test",
-    "user": "books_user",
-    "password": "booksbooks"
+    "user": "postgres",
+    "password": "postgres"
   }
 }

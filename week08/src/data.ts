@@ -35,6 +35,13 @@ export type BookWithDetails = Book & {
   authors?: Author[];
 };
 
+export type User = {
+  id?: number;
+  name?: string;
+  email: string;
+  hash: string;
+};
+
 // ========== ERROR HANDLING ==========
 
 export class DatabaseError extends Error {
@@ -598,4 +605,38 @@ export const writeBook = async (book: Omit<Book, "id">): Promise<Book> => {
 export const readBook = async (): Promise<BookWithDetails[]> => {
   console.warn("readBook is deprecated, use getAllBooks instead");
   return getAllBooks();
+};
+
+//User Create
+export const createUser = async (user: Omit<User, "id">): Promise<User> => {
+  const query = `
+    INSERT INTO users (name, email, hash) 
+    VALUES ($1, $2, $3) 
+    RETURNING *
+  `;
+
+  const params = [user.name, user.email, user.hash];
+
+  const result = await executeQuerySingle<User>(query, params, "create user");
+  if (!result) {
+    throw new DatabaseError("Failed to create user - no result returned");
+  }
+  return result;
+};
+
+//Get User by Id
+export const getUserById = async (id: number): Promise<User | null> => {
+  const query = `SELECT * FROM authors WHERE id = $1`;
+  return executeQuerySingle<User>(query, [id], "get user by id");
+};
+
+export const getUserByEmail = async (email: string): Promise<User | null> => {
+  const query = `SELECT * FROM users WHERE email = $1`;
+  return executeQuerySingle<User>(query, [email], "get user by email");
+};
+
+//Get all users
+export const getAllUsers = async (): Promise<User[]> => {
+  const query = `SELECT * FROM authors ORDER BY name`;
+  return executeQuery<User>(query, [], "get all authors");
 };

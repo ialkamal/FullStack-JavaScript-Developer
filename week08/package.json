@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "server": "nodemon --ext ts ./src/server.ts",
     "start": "ts-node ./src/index.ts",
     "test": "jasmine --config=spec/support/jasmine.json --require=ts-node/register",
     "test:crud": "jasmine --config=spec/support/jasmine.json --require=ts-node/register spec/crudSpec.ts",
@@ -26,15 +27,23 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
     "dotenv": "^17.2.2",
+    "express": "^5.1.0",
     "jasmine": "^5.10.0",
     "jasmine-spec-reporter": "^7.0.0",
+    "jsonwebtoken": "^9.0.2",
     "pg": "^8.16.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
     "@types/jasmine": "^5.1.9",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/nodemon": "^3.1.1",
     "@types/pg": "^8.15.5",
     "@types/typescript": "^2.0.0",
